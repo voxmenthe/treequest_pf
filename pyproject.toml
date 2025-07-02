@@ -9,12 +9,11 @@ authors = [
     {name = "Kai Xu and the Red Hat AI Innovation Team", email = "xuk@redhat.com"},
     {name = "Jeff Coggshall", email = "alocalminina@gmail.com"}
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 
 classifiers = [
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Operating System :: OS Independent",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
@@ -26,7 +25,7 @@ dependencies = [
     "tqdm>=4.65.0",
     "typing-extensions>=4.0.0",
     "reward-hub==0.1.1",
-    "vllm<=0.9.1",  # Pin to avoid build issues with newer versions requiring Rust compilation
+    "vllm<=0.9.1",  # Pin to avoid build issues with newer versions requiring Rust compilation - maybe this is fixed now? need to check
     "backoff>=2.2.0",
     "click>=8.1.0",
     "fastapi>=0.115.0",
@@ -57,6 +56,9 @@ dev = [
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/treequest", "src/its_hub"]
 
 [dependency-groups]
 dev = [
